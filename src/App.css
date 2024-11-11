@@ -92,6 +92,7 @@ h1, h2, p{
   0 0 10px #8A2BE2,
   0 0 20px #8A2BE2,
   0 0 30px #8A2BE2;
+  
 }
 
 /* estilo tarjetas */
@@ -106,5 +107,7 @@ h1, h2, p{
   text-shadow: 
         0 0 10px #ffff, 
         0 0 40px #ffff;
+
+  
 }
 /* fin estilo nuevo */
