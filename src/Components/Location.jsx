@@ -60,7 +60,7 @@ const Location = () => {
                         </div>
                     </div>
                 </div>
-                <div className="row">
+                <div className="row" style={{margin: '1rem'}}>
                     {location.residents?.map((locationUrl) => (
                         <div className="col-md-3 mb-3" key={locationUrl}>
                             <ItemRickyMorty locationUrl={locationUrl} location={location} />

@@ -25,7 +25,7 @@ function ItemRickyMorty({ locationUrl }) {
 
     console.log(item);
     return (
-        <div className="card" style={{ width: '18rem', borderRadius:'18px', marginLeft:'2rem' }}>
+        <div className="card" style={{ width: '18rem', borderRadius:'18px' }}>
             <div className="card-body card-characters">
                 <div className="position-relative">
                     <img src={item.image} alt={item.name} className="card-img-top" />
