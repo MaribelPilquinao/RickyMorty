@@ -4,10 +4,26 @@
   padding: 0;
   box-sizing: border-box;
 }
+@font-face {
+  font-family: 'RickAndMortyFont';
+  src: url('./assets/fonts/GetSchwifty.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
 body{
   font-size: 15px;
   background-color: #08434bcf;
   font-family: 'Roboto Flex', sans-serif;
+  background: radial-gradient(circle, 
+    rgba(0, 255, 0, 1) 0%,
+    rgba(138, 43, 226, 1) 40%,
+    rgba(0, 191, 255, 1) 80%,
+    rgb(252, 64, 249) 100%);
+  height: 100vh;
+  margin: 0;
+  background-size: cover;
+  background-attachment: fixed;
+  
 
 }
 h1, h2, p{
@@ -15,186 +31,80 @@ h1, h2, p{
 }
 .App {
   text-align: center;
+
 }
 
 .icon__spinner{
   width: 5rem;
   position: absolute;
   top: 50%;
+  
 }
 
-/* Estilo imagen header */
+
+/* estilo header nuevo */
 .header__img{
   width: 100%;
-  height: 40vh;
-  position: absolute;
-    left: 50%;
-    transform: translateX(-50%) translateY(-5%);
-    z-index: -1; 
-    opacity:.9;
-}
-.title__rym{
-  font-family: 'Caveat', cursive;
-  font-size: 3rem;
-  margin-bottom: 2rem;
-}
-
-
-/*estilo tarjeta general  */
-.card__general{
-  position: relative;
-  top: 10rem;
-  margin-bottom: 2rem;
-}
-/* input y boton */
-.search__header-input{
-  width: 14rem;
-  height: 2.3rem;
-  border-radius: 1px;
-  background-color: rgba(151, 153, 152, 0.744);
-  filter: saturate(30%);
-  margin-bottom: 2rem;
-  color: #ffffff;
-  border: 1px solid ;
-  border-radius: 4px;
-  font-size: 1.1rem;
-}
-.search__header-boton{
-  width: 4.5rem;
-  height: 2.3rem;
-  border-radius: 3px;
-  border: 0;
-  background-color:rgba(20, 170, 118, 0.978) ;
-  color: #ffffff;
-  font-size: .9rem;
-  cursor: pointer;
-  margin-left: .5rem;
-}
-.search__header-boton:hover{
-  background-color: #08434bcf;
-}
-.card__header-title{
-  color: #f8f8f8;
-}
-.card__header-description{
-  display: inline-flex;
-  margin: 1rem;
-  padding: 1.5rem;
-  background-color: rgba(36, 36, 36, 0.639);
-  color: #ffffff;
-  font-size: .7rem;
-  box-shadow: 2px 2px 4px rgba(252, 252, 252, 0.733);
-}
-.card__header-description > p{
-  margin: 1rem;
-}
-
-
-/* tarjetas personajes */
-.card_characters{
-  text-align: center;
-}
-.card_characters-ul{
-  display: flex;
-  flex-wrap: wrap;
-    align-content: flex-start;
-    justify-content: center;
-    align-items: center;
-}
-.card__character{
-  /* border: 1px solid greenyellow; */
-  display: flex;
-  background-color:  rgba(36, 36, 36, 0.639);
-  margin: 1rem;
-  width: 22rem;
-  height: 10.5rem;
-  font-size: .74rem;
-  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-}
-.card__img-icon{
-  position: relative;
-  top: -9.7rem;
-  right: 1.8rem;
-  background-color: rgba(0, 0, 0, 0.517);
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-  width: 6rem;
-  height: 1rem;
-  padding: .2rem;
-  text-align: center;
-  
-}
-.card__img{
-  height: 10rem;
-  width: 11rem;
-}
-.card__img > img{
- width: 10.5rem;
- padding: .5rem;
- opacity: 80%;
+ max-width: 100vw;
  
- /* box-shadow: 2px 2px 5px rgba(55, 53, 53, 0.639); */
 }
-.card__character-description{
-  padding: 1rem;
-  text-align: left;
-  color: #ffffff;
-}
-.card__character-description > h2{
-  font-size: 1rem;
-}
-.card__character-text{
-  color:rgba(252, 252, 252, 0.733);
+.img-custom{
+  margin-top: -35rem;
+  width: 70%;
+  height: 50vh;
   
 }
-
-/* Media queries */
-
-@media (min-width: 500px){
-  .card__general{
-    top: 10.5rem;
-  }
-  .title__rym{
-    font-size: 3.5rem;
-  }
-  .card__header-description{
-    font-size: 1.1rem;
-  }
-  .search__header-input{
-    width: 20rem;
-  }
-  .card__character{
-    width:26rem ;
-  }
-  .card__character-description{
-    font-size: 1rem;
-  }
-  .card__img-icon{
-    right: 1.5rem;
-    top: -9.5rem;
-  }
+.input-custom{
+  margin-top: -10rem;
+  margin-bottom: 5rem;
+  padding-left: 15rem;
+  padding-right: 15rem;
+  color: white;
+}
+.inp-custom{
+  border-color: #00ff88;
+  color: #00ff88;
+  text-shadow: 
+        0 0 5px #00ff88, 
+        0 0 10px #00ff88, 
+        0 0 20px #00ff88, 
+        0 0 40px #ff0000;
 }
 
-@media (min-width: 700px){
-  .card__general{
-    top: 11rem;
-  }
-  .title__rym{
-    font-size: 4.5rem;
-  }
-  .search__header-input{
-    width: 30rem;
-  }
-  .card__character{
-    width: 27rem;
-  }
-  .card__character-description{
-    font-size: 1.1rem;
-  }
+.btn-custom{
+  font-family: 'RickAndMortyFont', sans-serif;
+  color: #00ff88;
+  text-shadow: 
+        0 0 5px #ffff, 
+        0 0 10px #ffff, 
+        0 0 20px #00ff88, 
+        0 0 40px #ff0000;
+  background-color:#9b4dca ;
+  border-color: #00ff88;
+}
+.card-custom{
+  background: radial-gradient(circle, #8A2BE2, #9b4dca); /* Degradado radial de morado neón */
+  border-radius: 15px; /* Bordes redondeados */
+  color: white; /* Texto blanco para contraste */
+  padding: 20px; /* Espaciado interno (opcional) */
+  box-shadow: 0 4px 10px rgba(138, 43, 226, 0.5);
+  box-shadow: 
+  0 0 10px #8A2BE2,
+  0 0 20px #8A2BE2,
+  0 0 30px #8A2BE2;
 }
 
-@media (min-width: 1000px){
-  .card__general{
-    top: 11.5;
-  }
+/* estilo tarjetas */
+
+.card-characters{
+  background: radial-gradient(circle, #00ff88, #39FF14); /* Degradado de verde neón */
+  border-radius: 15px; /* Bordes redondeados */
+  color: white; /* Texto blanco para contraste */
+  padding: 20px; /* Espaciado interno (opcional) */
+  box-shadow: 0 4px 10px rgba(0, 255, 136, 0.5);
+  color: #ffff;
+  text-shadow: 
+        0 0 10px #ffff, 
+        0 0 40px #ffff;
 }
+/* fin estilo nuevo */

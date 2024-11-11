@@ -1,64 +1,79 @@
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import logo from '../Images/logo.png';
 import ItemRickyMorty from './ItemRickyMorty';
 
-
 const Location = () => {
-
-    const [location, setLocation] = useState({})
-    const [searchLocation, setSearchLocation] = useState(" ")
-    const [isLoanding, setIsLoanding] = useState(true)
+    const [location, setLocation] = useState({});
+    const [searchLocation, setSearchLocation] = useState('');
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const random = Math.floor(Math.random() * 126) + 1;
         axios.get(`https://rickandmortyapi.com/api/location/${random}/`)
             .then(res => {
-                setLocation(res.data)
-            }).finally(() => setIsLoanding(false))
-    }, [])
+                setLocation(res.data);
+            })
+            .finally(() => setIsLoading(false));
+    }, []);
 
     const searchLocat = () => {
         axios.get(`https://rickandmortyapi.com/api/location/${searchLocation}/`)
-            .then(res => setLocation(res.data))
-    }
-
-
-
-    console.log(location)
-
-
+            .then(res => setLocation(res.data));
+    };
 
     return (
-        <div className='card__general'>
-            {isLoanding ? <i class="fa-duotone fa-spinner"></i> : (
-                <>
-                    <div className="search__header">
-                        <input className='search__header-input' type="text"
+        <div className="container mt-5 pt-5 header">
+        {isLoading ? (
+            <div className="text-center">
+                <i className="fa fa-spinner fa-spin fa-3x"></i>
+            </div>
+        ) : (
+            <>
+                <h1 className="text-center mb-4 "><img className='img-custom' src={logo} alt="" /></h1>
+                <div className="mb-4">
+                    <div className="input-group input-custom">
+                        <input
+                            type="text"
+                            className="form-control inp-custom"
+                            placeholder="Escriba ID"
                             value={searchLocation}
-                            onChange={e => setSearchLocation(e.target.value)} />
-                        <button className='search__header-boton' placeholder='Escriba ID' onClick={searchLocat}>Search</button>
+                            onChange={e => setSearchLocation(e.target.value)}
+                        />
+                        <button
+                            className="btn btn-custom"
+                            onClick={searchLocat}
+                        >
+                            Buscar
+                        </button>
                     </div>
-                    <article className='card__header-title'>
-                        <h1 className='title__rym'>Rick and Morty</h1>
-                        <h2><b>{location.name}</b></h2>
-                    </article>
-                    <div className="card__header-description">
-                        <p ><b>Type: </b>{location.type}</p>
-                        <p ><b>Dimension: </b>{location.dimension}</p>
-                        <p ><b>Populacion: </b>{location.residents?.length}</p>
+                </div>
+                <div className="d-flex justify-content-center">
+                    <div className="card mb-4" style={{ maxWidth: '500px',minWidth:'350px', borderRadius: '25px' }}>
+                        <div className="card-body card-custom">
+                            <h2 className="text-center">{location.name}</h2>
+                            <div className="mt-3">
+                                <p><b>Type:</b> {location.type}</p>
+                                <p><b>Dimension:</b> {location.dimension}</p>
+                                <p><b>Population:</b> {location.residents?.length}</p>
+                            </div>
+                        </div>
                     </div>
-                    <article className='card_characters'>
-                        <ul className='card_characters-ul'>
-                            {location.residents?.map((locationUrl) => (
-                                <ItemRickyMorty locationUrl={locationUrl} key={locationUrl} location={location} />
-                            ))}
-                        </ul>
-                    </article>
-                </>
-            )}
-
-        </div>
+                </div>
+                <div className="row">
+                    {location.residents?.map((locationUrl) => (
+                        <div className="col-md-3 mb-3" key={locationUrl}>
+                            <ItemRickyMorty locationUrl={locationUrl} location={location} />
+                        </div>
+                    ))}
+                </div>
+            </>
+        )}
+    </div>
+    
+    
     );
+    
 };
 
 export default Location;
